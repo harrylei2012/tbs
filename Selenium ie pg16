@@ -1,0 +1,40 @@
+public class PG16 {
+	public static void main(String[] args) {
+        // declaration and instantiation of objects/variables
+ //   	System.setProperty("webdriver.firefox.marionette","C:\\geckodriver.exe");
+//		WebDriver driver = new FirefoxDriver();
+		//comment the above 2 lines and uncomment below 2 lines to use Chrome
+		//System.setProperty("webdriver.chrome.driver","C://webdriver/chromedriver_win32/chromedriver.exe");
+		System.setProperty("webdriver.ie.driver","C:\\webdriver\\IEDriverServer_x64_3.12.0\\IEDriverServer.exe");
+		
+		WebDriver driver = new InternetExplorerDriver();
+		// WebDriver driver = new ChromeDriver();
+    	
+       // String baseUrl = "http://demo.guru99.com/test/newtours/";
+        String baseUrl = "http://10.160.199.248:4200";
+       // String baseUrl = "http://www.cbc.ca/news";
+        String expectedTitle = "Welcome: Mercury Tours";
+        String actualTitle = "";
+
+        // launch Fire fox and direct it to the Base URL
+        driver.get(baseUrl);
+
+        // get the actual value of the title
+        actualTitle = driver.getTitle();
+
+        /*
+         * compare the actual title of the page with the expected one and print
+         * the result as "Passed" or "Failed"
+         */
+        if (actualTitle.contentEquals(expectedTitle)){
+            System.out.println("Test Passed!");
+        } else {
+            System.out.println("Test Failed");
+        }
+       
+        //Terminating a browser session - close Fire fox
+        driver.close();
+       
+    }
+
+}
